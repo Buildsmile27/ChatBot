@@ -8,15 +8,15 @@ ini_set('mssql.charset', 'UTF-8');
 $ini_array = parse_ini_file("config.ini",false, INI_SCANNER_RAW);
 
 
-$username=$ini_array["UID"];
+$username="sa";
 
-$password=$ini_array["PWD"];
+$password="#<93a7!?";
 
-$database=$ini_array["PACKAGE"];
-$serverName = $ini_array["serverName"];
+$database="QERP";
+$serverName ="PACKAGE";
 
-echo $username+' '+$password;
-/*
+
+
 $connectionInfo = array( "Database"=>$database, "UID"=>$username, "PWD"=>$password, "CharacterSet" => "UTF-8");
 $conn = sqlsrv_connect( $serverName, $connectionInfo );
 
@@ -63,7 +63,7 @@ sqlsrv_close($conn);
 echo  Json_encode($result)
 
 
-*/
+
 
 
 
