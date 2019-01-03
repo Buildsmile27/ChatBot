@@ -1,5 +1,5 @@
 <?php
-echo 'query'
+
 
 	
 ini_set('mssql.charset', 'UTF-8');
@@ -14,6 +14,9 @@ $password=$ini_array["PWD"];
 
 $database=$ini_array["PACKAGE"];
 $serverName = $ini_array["serverName"];
+
+echo $username+' '+$password;
+/*
 $connectionInfo = array( "Database"=>$database, "UID"=>$username, "PWD"=>$password, "CharacterSet" => "UTF-8");
 $conn = sqlsrv_connect( $serverName, $connectionInfo );
 
@@ -60,14 +63,14 @@ sqlsrv_close($conn);
 echo  Json_encode($result)
 
 
+*/
 
 
 
 
 
 
-
-
+/*
 
 while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) 
 {
