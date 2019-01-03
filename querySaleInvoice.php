@@ -12,8 +12,8 @@ $username="sa";
 
 $password="#<93a7!?";
 
-$database="QERP";
-$serverName ="PACKAGE";
+$database="TCT";
+$serverName ="203.150.53.240\\TCT,1533";
 
 
 
