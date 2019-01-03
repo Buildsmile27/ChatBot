@@ -1,6 +1,7 @@
 <?php
 echo 'query'
 
+	/*
 ini_set('mssql.charset', 'UTF-8');
 
 
@@ -58,7 +59,7 @@ sqlsrv_close($conn);
 
 echo  Json_encode($result)
 
-
+*/
 
 
 
