@@ -58,7 +58,7 @@
     else if($message == "ดูใบสั่งซื้อ")
     {
 	 
-	$return_value =CallService ($url);
+	//$return_value =CallService ($url);
 	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "อย่าทิ้งกันไป";
