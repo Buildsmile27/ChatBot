@@ -1,6 +1,6 @@
 <?php
   try {
-    $hostname = "203.150.53.240";
+    $hostname = "203.150.53.240\TCT";
     $port = 1533;
     $dbname = "TCT";
     $username = "sa";
