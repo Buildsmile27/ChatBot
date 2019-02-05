@@ -18,7 +18,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 $data = curl_exec($ch);
 $arr = (json_decode($data , true));
 $arr["rows"][0]["elements"][0]["SONo"]["text"];	
-echo $arr;
+
 echo $data;
 // get info about the request
 $info = curl_getinfo($ch);
