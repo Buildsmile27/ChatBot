@@ -1,23 +1,25 @@
 <?php
-  try {
-    $hostname = "203.150.53.240\TCT";
-    $port = 1533;
-    $dbname = "TCT";
-    $username = "sa";
-    $pw = "#<93a7!?";
-    $dbh = new PDO ("mssql:host=$hostname,$port;dbname=$dbname","$username","$pw");
-  } catch (PDOException $e) {
-    echo "Failed to get DB handle: " . $e->getMessage() . "\n";
-    exit;
-  }
-  $stmt = $dbh->prepare("select top 20 isnull(CONVERT(varchar(20),SODate,105),'')as SOdate ,isnull(SONo,'') as SONo,isnull(customername,'') 
-as customername,
-isnull(CONVERT(varchar, CAST(TotalAmountAfterVATBaht AS money), 1),'') as TotalAmountAfterVATBaht,
-isnull(Runno,'') as Runno,isnull(DocumentTypeCode,'')as DocumentTypeCode  from SalesOrderHeader
-order by SONo Desc");
-  $stmt->execute();
-  while ($row = $stmt->fetch()) {
-    print_r($row);
-  }
-  unset($dbh); unset($stmt);
+//setup the request, you can also use CURLOPT_URL
+$ch = curl_init('https://api.digitalocean.com/v2/actions/36805022');
+
+// Returns the data/output as a string instead of raw data
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+// Good practice to let people know who's accessing their servers. See https://en.wikipedia.org/wiki/User_agent
+curl_setopt($ch, CURLOPT_USERAGENT, 'YourScript/0.1 (contact@email)');
+
+//Set your auth headers
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+    'Content-Type: application/json',
+    'Authorization: Bearer ' . $TOKEN
+    ));
+
+// get stringified data/output. See CURLOPT_RETURNTRANSFER
+$data = curl_exec($ch);
+
+// get info about the request
+$info = curl_getinfo($ch);
+
+// close curl resource to free up system resources 
+curl_close($ch)
 ?>
