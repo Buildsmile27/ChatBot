@@ -19,7 +19,7 @@ $data = curl_exec($ch);
 
 // get info about the request
 $info = curl_getinfo($ch);
-
+echo $info;
 // close curl resource to free up system resources 
 curl_close($ch)
 ?>
