@@ -5,7 +5,7 @@
     $dbname = "TCT";
     $username = "sa";
     $pw = "#<93a7!?";
-    $dbh = new PDO ("mssql:host=$hostname:$port;dbname=$dbname","$username","$pw");
+    $dbh = new PDO ("mssql:host=$hostname,$port;dbname=$dbname","$username","$pw");
   } catch (PDOException $e) {
     echo "Failed to get DB handle: " . $e->getMessage() . "\n";
     exit;
