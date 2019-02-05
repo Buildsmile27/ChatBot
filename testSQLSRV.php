@@ -1,6 +1,6 @@
 <?php
 //setup the request, you can also use CURLOPT_URL
-$ch = curl_init('https://api.digitalocean.com/v2/actions/36805022');
+$ch = curl_init('https://www.quadtech.co.th/qerpmobile/queryCurency.php');
 
 // Returns the data/output as a string instead of raw data
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
