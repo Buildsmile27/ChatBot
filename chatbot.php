@@ -55,6 +55,18 @@
         $arrayPostData['messages'][1]['stickerId'] = "131";
         replyMsg($arrayHeader,$arrayPostData);
     }
+    else if($message == "ดูใบสั่งซื้อ")
+    {
+	 
+	$return_value =CallService ($url);
+	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['text'] = "อย่าทิ้งกันไป";
+        $arrayPostData['messages'][1]['type'] = "sticker";
+        $arrayPostData['messages'][1]['packageId'] = "1";
+        $arrayPostData['messages'][1]['stickerId'] = "131";
+        replyMsg($arrayHeader,$arrayPostData);
+    }
 	
 function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
@@ -70,11 +82,29 @@ function replyMsg($arrayHeader,$arrayPostData){
         curl_close ($ch);
     }
 
-function CallService ($url,$arrayPostData){
+function CallService ($url)
+{
        
+	$ch = curl_init('https://www.quadtech.co.th/qerpmobile/querySaleInvoice.php');
+// Returns the data/output as a string instead of raw data
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+// Good practice to let people know who's accessing their servers. See https://en.wikipedia.org/wiki/User_agent
+curl_setopt($ch, CURLOPT_USERAGENT, 'YourScript/0.1 (contact@email)');
+//Set your auth headers
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+    'Content-Type: application/json',
+    'Authorization: Bearer ' . $TOKEN
+    ));
+// get stringified data/output. See CURLOPT_RETURNTRANSFER
+$data = curl_exec($ch);
+$arr = (json_decode($data , true));
+$arr["rows"][0]["elements"][0]["SONo"]["text"];	
 	
-	
-	
+// get info about the request
+$info = curl_getinfo($ch);
+// close curl resource to free up system resources 
+curl_close($ch)
+		
     }
 	
    exit;
