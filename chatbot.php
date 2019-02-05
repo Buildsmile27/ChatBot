@@ -69,6 +69,13 @@ function replyMsg($arrayHeader,$arrayPostData){
         $result = curl_exec($ch);
         curl_close ($ch);
     }
+
+function CallService ($url,$arrayPostData){
+       
+	
+	
+	
+    }
 	
    exit;
 ?> 
