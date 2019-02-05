@@ -16,6 +16,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 
 // get stringified data/output. See CURLOPT_RETURNTRANSFER
 $data = curl_exec($ch);
+$arr = (json_decode($data , true));
 $arr["rows"][0]["elements"][0]["SONo"]["text"];	
 echo $arr;
 // get info about the request
